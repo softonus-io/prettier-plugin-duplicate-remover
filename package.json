@@ -1,6 +1,6 @@
 {
   "name": "@softonus/prettier-plugin-duplicate-remover",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Prettier plugin that removes duplicates of className",
   "main": "dist/index.min.js",
   "files": [
