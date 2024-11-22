@@ -1,6 +1,6 @@
 {
   "name": "@softonus/prettier-plugin-duplicate-remover",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Prettier plugin that removes duplicates of className",
   "main": "dist/index.min.js",
   "files": [
@@ -28,8 +28,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/softonus-io/prettier-plugin-duplicate-remover.git"
+    "url": "git+https://github.com/softonus-io/prettier-plugin-duplicate-remover.git"
   },
+  "bugs": {
+    "url": "https://github.com/softonus-io/prettier-plugin-duplicate-remover/issues"
+  },
+  "homepage": "https://github.com/softonus-io/prettier-plugin-duplicate-remover#readme",
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/parser": "^7.6.0",

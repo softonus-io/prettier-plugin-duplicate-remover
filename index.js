@@ -1,7 +1,8 @@
 const { parsers: typescriptParsers } = require('prettier/parser-typescript')
 const { parsers: javascriptParsers } = require('prettier/parser-babel')
+const { parsers: htmlParsers } = require('prettier/parser-html')
 
-function preprocess(text, opts) {
+function preprocessClassName(text) {
   const classNamePattern = /className\s*=\s*["']([^"']+)["']/g
   return text.replace(classNamePattern, (match, classNames) => {
     const cleanClassNames = classNames
@@ -9,8 +10,21 @@ function preprocess(text, opts) {
       .split(/\s+/)
       .filter((item, index, self) => self.indexOf(item) === index)
       .join(' ')
-      
+
     return `className="${cleanClassNames}"`
+  })
+}
+
+function preprocessClass(text) {
+  const classPattern = /class\s*=\s*["']([^"']+)["']/g
+  return text.replace(classPattern, (match, classNames) => {
+    const cleanClassNames = classNames
+      .trim()
+      .split(/\s+/)
+      .filter((item, index, self) => self.indexOf(item) === index)
+      .join(' ')
+
+    return `class="${cleanClassNames}"`
   })
 }
 
@@ -18,11 +32,23 @@ module.exports = {
   parsers: {
     typescript: {
       ...typescriptParsers.typescript,
-      preprocess
+      preprocess: preprocessClassName
     },
     babel: {
       ...javascriptParsers.babel,
-      preprocess
+      preprocess: preprocessClassName
+    },
+    vue: {
+      ...htmlParsers.html,
+      preprocess: preprocessClass
+    },
+    angular: {
+      ...htmlParsers.html,
+      preprocess: preprocessClass
+    },
+    html: {
+      ...htmlParsers.html,
+      preprocess: preprocessClass
     }
   }
 }
