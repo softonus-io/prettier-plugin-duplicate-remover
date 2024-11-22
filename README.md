@@ -1,4 +1,4 @@
-# @softonus/prettier-plugin-duplicate-remover
+# 🚀 Prettier Plugin: Duplicate Remover
 
 ## 🚀 About
 Prettier plugin that removes duplicate class names from `className` (JSX/TSX/React), `class` (HTML, Angular, Vue), and similar attributes in your code, ensuring clean and consistent class usage.
